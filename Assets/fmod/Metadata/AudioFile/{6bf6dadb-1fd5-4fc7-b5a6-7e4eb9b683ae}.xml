@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{6bf6dadb-1fd5-4fc7-b5a6-7e4eb9b683ae}">
+		<property name="assetPath">
+			<value>deathexplosion_fiberflight.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>1</value>
+		</property>
+		<property name="length">
+			<value>5.4375</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{e7d49bdb-edab-485f-900e-d414b69eda8b}</destination>
+		</relationship>
+	</object>
+</objects>
