@@ -4,18 +4,37 @@ using UnityEngine;
 
 public class TunnelGeneratro : MonoBehaviour
 {
-    [SerializeField] float speed = 1F,offset = 18F;
+    #region Singleton
+    private static TunnelGeneratro _instance;
+    public static TunnelGeneratro Instance => _instance;
+    private void Awake()
+    {
+        if (_instance != null)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            _instance = this;
+        }
+    }
+    #endregion
+    public float speed = 1F,offset = 18F;
     List<Transform> activeParts = new List<Transform>();
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine(SpeedOverTime());
+        StartCo();
         for(int i=0; i<12; i++)
         {
             activeParts.Add(ObjectPooler.Instance.GetRandoObject().transform);
             activeParts[i].gameObject.SetActive(true);
             activeParts[i].position = new Vector3(0, 0, offset * i);
         }
+    }
+    public void StartCo()
+    {
+        StartCoroutine(SpeedOverTime());
     }
     IEnumerator SpeedOverTime()
     {

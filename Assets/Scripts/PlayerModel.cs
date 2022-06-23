@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
@@ -12,9 +11,15 @@ public class PlayerModel : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         if(collision.gameObject.CompareTag("damage"))
-        {
-            Destroy(collision.gameObject);
+        { 
+            collision.gameObject.SetActive(false);
             Health -= 10;
+            TunnelGeneratro.Instance.speed -= 0.05f;
+            if (TunnelGeneratro.Instance.speed >= 4.4f)
+            {
+                TunnelGeneratro.Instance.StartCo();
+            }
+            Score -= 10;
             if (Health <= 0)
             {
                 gameObject.SetActive(false);
